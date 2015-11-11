@@ -45,6 +45,7 @@ func While() int {
 	return sum
 }
 
+// sqrt function
 func Sqrt(x float64) string {
 	if x < 0 {
 		return Sqrt(-x) + "i"
