@@ -52,3 +52,13 @@ func Sqrt(x float64) string {
 	}
 	return fmt.Sprint(math.Sqrt(x))
 }
+
+// if with short statement
+func IfWithShortStatement(x, n, limit float64) float64 {
+	if v := math.Pow(x, n); v < limit {
+		return v
+	} else {
+		fmt.Printf("%g >= %g\n", v, limit)		// if condition available also in else
+	}
+	return limit
+}
