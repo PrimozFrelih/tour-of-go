@@ -36,4 +36,6 @@ func main() {
 
 	tour.Switch3()
 	stringutil.EmptyLine()
+
+	tour.Pointers()
 }
