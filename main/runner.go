@@ -4,6 +4,7 @@ import (
 	"github.com/matijavizintin/first/tour"
 	"fmt"
 	"github.com/matijavizintin/first.bak/stringutil"
+	"golang.org/x/tour/pic"
 )
 
 
@@ -38,4 +39,6 @@ func main() {
 	stringutil.EmptyLine()
 
 	tour.Pointers()
+
+	pic.Show(tour.Pic)
 }

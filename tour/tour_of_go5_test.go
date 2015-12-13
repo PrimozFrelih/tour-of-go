@@ -3,6 +3,7 @@ import (
 	"testing"
 	"fmt"
 	"strings"
+	"golang.org/x/tour/pic"
 )
 
 func TestPointers(t *testing.T) {
@@ -120,6 +121,46 @@ func TestSlicesMaker(t *testing.T) {
 	// empty slice
 	var empty []int
 	fmt.Printf("%v, len=%d, cap=%d, isnil=%t\n", empty, len(empty), cap(empty), empty == nil)
+}
+
+func TestAppendToSlice(t *testing.T) {
+	// empty slice
+	var slice []int
+	PrintSlice("empty slice", slice)
+
+	// add first element
+	slice = append(slice, 1)
+	PrintSlice("slice with 1 element", slice)
+
+	// append multiple
+	slice = append(slice, 2, 3, 4, 5)
+	PrintSlice("slice with multiple elements", slice)
+}
+
+func TestRange(t *testing.T) {
+	pow := []int{1, 2, 4, 8, 16}
+
+	// print range with for
+	for index, element := range pow {
+		fmt.Printf("2^%d = %d\n", index, element)
+	}
+
+	// reset array
+	pow = make([]int, 10)
+
+	// fill with powers
+	for idx := range pow {
+		pow[idx] = 1 << uint(idx)
+	}
+
+	// and print calculated pow array
+	for _, value := range pow {		// note: the index is ignored
+		fmt.Printf("%d\n", value)
+	}
+}
+
+func TestExerciseSlices(t *testing.T) {
+	pic.Show(Pic)
 }
 
 
