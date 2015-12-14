@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/matijavizintin/first.bak/stringutil"
 	"golang.org/x/tour/pic"
+	"github.com/matijavizintin/first/methods"
 )
 
 
@@ -41,4 +42,25 @@ func main() {
 	tour.Pointers()
 
 	pic.Show(tour.Pic)
+
+	v0 := &methods.Vertex{1, 2}
+	fmt.Printf("Abs value of vertex is %f\n", v0.Abs())
+
+	// using a reference
+	v := &methods.Vertex{3, 4}
+	fmt.Printf("Before scaling: %+v, Abs: %v\n", v, v.Abs())
+	v.Scale(5)
+	fmt.Printf("After scaling: %+v, Abs: %v\n", v, v.Abs())
+
+	// using a value type it works the same
+	v1 := methods.Vertex{3, 4}
+	fmt.Printf("Before scaling: %+v, Abs: %v\n", v1, v1.Abs())
+	v1.Scale(5)
+	fmt.Printf("After scaling: %+v, Abs: %v\n", v1, v1.Abs())
+
+	// passing to a method that accepts the value type doesn't change the v2
+	v2 := &methods.Vertex{3, 4}
+	fmt.Printf("Before scaling: %+v, Abs: %v\n", v2, v2.Abs())
+	v2.Scale1(5)
+	fmt.Printf("After scaling: %+v, Abs: %v\n", v2, v2.Abs())
 }
