@@ -32,3 +32,13 @@ func TestStringer(t *testing.T) {
 	fmt.Println(p1, p2)		// will be formatted using Person's Stringer method
 }
 
+func TestIP(t *testing.T) {
+	addrs := map[string]IPAddr{
+		"loopback":  {127, 0, 0, 1},
+		"googleDNS": {8, 8, 8, 8},
+	}
+	for n, a := range addrs {
+		fmt.Printf("%v: %v\n", n, a)
+	}
+}
+
