@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/matijavizintin/first/tour"
+	"github.com/matijavizintin/first/basics/tour"
 	"fmt"
-	"github.com/matijavizintin/first.bak/stringutil"
+	"github.com/matijavizintin/first/basics/stringutil"
 	"golang.org/x/tour/pic"
-	"github.com/matijavizintin/first/methods"
+	"github.com/matijavizintin/first/methodandinterfaces/methods"
 )
 
 

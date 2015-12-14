@@ -2,7 +2,7 @@ package tour
 
 import (
 	"fmt"
-	"github.com/matijavizintin/first/stringutil"
+	"github.com/matijavizintin/first/basics/stringutil"
 	"math"
 )
 

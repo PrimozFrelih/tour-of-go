@@ -3,7 +3,7 @@ package main
 import (
 	"math/cmplx"
 	"fmt"
-	"github.com/matijavizintin/first/stringutil"
+	"github.com/matijavizintin/first/basics/stringutil"
 	"math"
 )
 

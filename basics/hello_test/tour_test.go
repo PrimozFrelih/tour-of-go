@@ -2,7 +2,7 @@ package hello_test
 
 import (
 	"testing"
-	"github.com/matijavizintin/first/tour"
+	"github.com/matijavizintin/first/basics/tour"
 )
 
 func TestFor(t *testing.T) {
