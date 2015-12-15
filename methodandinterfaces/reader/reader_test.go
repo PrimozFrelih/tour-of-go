@@ -5,6 +5,7 @@ import (
 	"strings"
 	"testing"
 	"golang.org/x/tour/reader"
+	"os"
 )
 
 func TestReader(t *testing.T) {
@@ -23,4 +24,10 @@ func TestReader(t *testing.T) {
 
 func TestReader2(t *testing.T) {
 	reader.Validate(MyReader{})
+}
+
+func TestRot13Reader(t *testing.T) {
+	s := strings.NewReader("Lbh penpxrq gur pbqr!")
+	r := rot13Reader{s}
+	io.Copy(os.Stdout, &r)
 }
