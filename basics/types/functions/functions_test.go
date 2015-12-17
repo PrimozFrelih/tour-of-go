@@ -1,4 +1,4 @@
-package tour
+package functions
 
 import (
 	"testing"

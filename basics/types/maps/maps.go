@@ -1,4 +1,5 @@
-package tour
+package maps
+
 import "strings"
 
 func WordCount(s string) map[string]int {

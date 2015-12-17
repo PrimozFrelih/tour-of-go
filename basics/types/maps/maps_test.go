@@ -1,4 +1,4 @@
-package tour
+package maps
 
 import (
 	"fmt"
@@ -6,28 +6,28 @@ import (
 	"golang.org/x/tour/wc"
 )
 
-type Vertex1 struct {
+type Vertex struct {
 	Lat, Long float64
 }
 
 func TestMap(t *testing.T) {
-	var m map[string]Vertex1
+	var m map[string]Vertex
 
 	// init map
-	m = make(map[string]Vertex1)
+	m = make(map[string]Vertex)
 
 	// fill data
 	key1 := "something"
 	key2 := "something_else"
-	m[key1] = Vertex1{1, 2}
-	m[key2] = Vertex1{3, 4}
+	m[key1] = Vertex{1, 2}
+	m[key2] = Vertex{3, 4}
 
 	fmt.Printf("values for %v = %v and %v = %v\n\n", key1, m[key1], key2, m[key2])
 
 	// init and fill
-	m1 := map[string]Vertex1 {
-		"key1": Vertex1{11, 12},
-		"key2": Vertex1{22, 23},
+	m1 := map[string]Vertex {
+		"key1": Vertex{11, 12},
+		"key2": Vertex{22, 23},
 	}
 
 	fmt.Printf("map to string ==> %v\n\n", m1)
