@@ -6,6 +6,8 @@ import (
 	"github.com/matijavizintin/first/basics/stringutil"
 	"golang.org/x/tour/pic"
 	"github.com/matijavizintin/first/methodandinterfaces/methods"
+	"github.com/matijavizintin/first/concurrency/channels"
+	"time"
 )
 
 
@@ -63,4 +65,18 @@ func main() {
 	fmt.Printf("Before scaling: %+v, Abs: %v\n", v2, v2.Abs())
 	v2.Scale1(5)
 	fmt.Printf("After scaling: %+v, Abs: %v\n", v2, v2.Abs())
+
+	array := []int{1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024}
+
+	// crate a channel
+	channel := make(chan int)
+
+	go channels.SumThroughChannel(array[:len(array) / 2], channel)		// first half
+	time.Sleep(100 * time.Millisecond)
+	go channels.SumThroughChannel(array[len(array) / 2:], channel)		// second half
+
+	// collect results
+	x1, y1 := <-channel, <-channel
+
+	fmt.Println(x1, y1, x1+y1)
 }
