@@ -31,3 +31,15 @@ func fibonacci() func() int {
 		return n2
 	}
 }
+
+// multiple returns
+func Swap(x, y string) (string, string) {
+	return y, x
+}
+
+// named return values
+func Split(sum int) (x, y int) {
+	x = sum * 4 / 9
+	y = sum - x
+	return
+}

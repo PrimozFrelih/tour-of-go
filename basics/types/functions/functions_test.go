@@ -32,3 +32,16 @@ func TestFibonacci(t *testing.T) {
 		fmt.Println(f())
 	}
 }
+
+func TestMultipleReturn(t *testing.T) {
+	i1, i2 := "10", "11"
+	v1, v2 := Swap(i1, i2)
+
+	fmt.Printf("input: %s, %s 	output: %s, %s\n", i1, i2, v1, v2)
+}
+
+func TestNamedReturnValues(t *testing.T) {
+	// check the method for named return values - also the return is empty
+	r1, r2 := Split(100)
+	fmt.Println(r1, r2)
+}

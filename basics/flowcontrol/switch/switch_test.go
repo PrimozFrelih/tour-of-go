@@ -1,43 +1,30 @@
-package tour
+package switch1
 import (
-	"math"
-	"fmt"
+	"testing"
 	"runtime"
+	"fmt"
 	"time"
 )
 
-func NewtonsSqrt(z, x float64) float64 {
-	epsilon := math.Pow(10, -9)
+// switch in go breaks automatically
+// fallthrough keyword is used so the switch doesn't break automatically
+func TestSwitch(t *testing.T) {
 
-	var previousValue float64
-	for i := 0; i < 10; i++ {
-		z = z - ((math.Pow(z, 2) - x) / (2 * z))
-		fmt.Printf("%v, %g\n", i, z)
-
-		if math.Abs(z - previousValue) < epsilon {
-			break
-		}
-
-		previousValue = z
-	}
-
-	return z
-}
-
-func Switch() {
+	// set a var and use it in a switch
 	switch os := runtime.GOOS; os {
 	case "darwin":
 		fmt.Println("OS X")
 	case "linux":
 		fmt.Println("Linux")
-		// fallthrough so the switch doesn't break automatically
 	default:
 		fmt.Println(os)
 	}
 }
 
-func Switch2() {
+func TestSwitch2(t *testing.T) {
 	today := time.Now().Weekday()
+
+	// switch on a constant
 	switch time.Saturday {
 	case today:
 		fmt.Println("Today")
@@ -50,7 +37,7 @@ func Switch2() {
 	}
 }
 
-func Switch3() {
+func TestSwitch3(t *testing.T) {
 	now := time.Now()
 
 	// no condition

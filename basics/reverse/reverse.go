@@ -1,7 +1,8 @@
-package stringutil
+package reverse
 
+// reverse a string
 func Reverse(s string) string {
-	r := []rune(s)
+	r := []rune(s)		// rune is used for unicode
 	for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
 		r[i], r[j] = r[j], r[i]
 	}

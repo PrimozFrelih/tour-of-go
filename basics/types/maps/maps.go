@@ -2,6 +2,11 @@ package maps
 
 import "strings"
 
+type Vertex struct {
+	Lat, Long float64
+}
+
+// exercise
 func WordCount(s string) map[string]int {
 	// init map
 	var m = make(map[string]int)

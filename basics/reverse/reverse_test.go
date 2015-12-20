@@ -1,4 +1,4 @@
-package stringutil
+package reverse
 
 import (
 	"testing"

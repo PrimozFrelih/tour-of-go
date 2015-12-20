@@ -6,10 +6,6 @@ import (
 	"golang.org/x/tour/wc"
 )
 
-type Vertex struct {
-	Lat, Long float64
-}
-
 func TestMap(t *testing.T) {
 	var m map[string]Vertex
 
