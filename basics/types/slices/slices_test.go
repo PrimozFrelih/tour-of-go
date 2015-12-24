@@ -7,6 +7,8 @@ import (
 )
 
 func TestArrays(t *testing.T) {
+	// NOTE: the size is part of its type; [2]string != [3]string
+	// array is a value; array1 = array2 copies all the elements from array1 to array2
 	var array [2]string
 	array[0] = "Hello"
 	array[1] = "Kitty"
