@@ -1,24 +1,36 @@
 package main
 
-import (
-	"github.com/matijavizintin/go-first/concurrency/channels"
-	"time"
-	"fmt"
-)
-
 
 func main() {
-	array := []int{1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024}
+	ch := make(chan int)
+	batteryConsumer()
+	<-ch
+}
 
-	// crate a channel
-	channel := make(chan int)
+const THREADS = 10
 
-	go channels.SumThroughChannel(array[:len(array) / 2], channel)		// first half
-	time.Sleep(100 * time.Millisecond)
-	go channels.SumThroughChannel(array[len(array) / 2:], channel)		// second half
+func batteryConsumer() {
+	for i := 0; i < THREADS; i++ {
+		go func() {
+			counter := 0
+			lowerLimit := 0
+			upperLimit := 0
 
-	// collect results
-	x1, y1 := <-channel, <-channel
+			var increment bool
+			for {
+				if counter <= lowerLimit {
+					increment = true
+				} else if counter >= upperLimit {
+					increment = false
+				}
 
-	fmt.Println(x1, y1, x1+y1)
+				if increment {
+					counter++
+				} else {
+					counter--
+				}
+			}
+
+		}()
+	}
 }
