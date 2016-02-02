@@ -26,7 +26,7 @@ func TestBufferedChannel(t *testing.T) {
 	for i := 0; i < 100; i++ {
 		ch <- i		// fill the buffer
 	}
-	ch <- 2			// NOTE: and this should block => deadlock    ==> test will fail
+//	ch <- 2			// NOTE: and this should block => deadlock    ==> test will fail
 
 	fmt.Println(<-ch)
 	fmt.Println(<-ch)

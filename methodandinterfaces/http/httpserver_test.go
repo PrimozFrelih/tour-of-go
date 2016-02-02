@@ -5,7 +5,8 @@ import (
 	"log"
 )
 
-func TestHTTPServer(t *testing.T) {
+// disabled to tests aren't stuck in an infinite loop
+func testHTTPServer(t *testing.T) {
 	var h HelloServer
 
 	// start http server
@@ -15,7 +16,8 @@ func TestHTTPServer(t *testing.T) {
 	}
 }
 
-func TestHTTPServerExercise(t *testing.T) {
+// disabled to tests aren't stuck in an infinite loop
+func testHTTPServerExercise(t *testing.T) {
 	http.Handle("/string", String("I'm a frayed knot."))
 	http.Handle("/struct", &Struct{"Hello", ":", "Gophers!"})
 
