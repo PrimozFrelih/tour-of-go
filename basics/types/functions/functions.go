@@ -1,9 +1,11 @@
 package functions
 
+// this function takes a parameter fn = [function with two float parameters and returns a float64] and returns a float64
 func compute(fn func(float64, float64) float64) float64 {
 	return fn(3, 4)
 }
 
+// this function returns a function that takes an int argument and returns an int
 func adder() func(int) int {
 	sum := 0
 	return func(x int) int {
@@ -17,6 +19,7 @@ func adder() func(int) int {
 func fibonacci() func() int {
 	n1, n0 := 0, 0
 
+	// return a function that returns the next fibonacci number
 	return func() int {
 		if n0 == 0 {
 			n0 = 1
@@ -32,7 +35,7 @@ func fibonacci() func() int {
 	}
 }
 
-// multiple returns
+// this function returns two strings
 func Swap(x, y string) (string, string) {
 	return y, x
 }
@@ -41,5 +44,5 @@ func Swap(x, y string) (string, string) {
 func Split(sum int) (x, y int) {
 	x = sum * 4 / 9
 	y = sum - x
-	return
+	return			// return is empty - return values are named
 }

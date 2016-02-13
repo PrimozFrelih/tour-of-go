@@ -26,3 +26,7 @@ go get -t ./...
 
 **4. Open the project in your editor of choice**
 I personally use <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA<a/> with go <a href="https://github.com/go-lang-plugin-org">plugin</a> but any editor will do just fine.
+
+## Note
+
+If you find any bugs a pull request will be much appreciated. Thank you.

@@ -6,8 +6,6 @@ import (
 	"time"
 )
 
-// switch in go breaks automatically
-// fallthrough keyword is used so the switch doesn't break automatically
 func TestSwitch(t *testing.T) {
 
 	// set a var and use it in a switch
@@ -18,6 +16,18 @@ func TestSwitch(t *testing.T) {
 		fmt.Println("Linux")
 	default:
 		fmt.Println(os)
+	}
+}
+
+// NOTE: switch in go breaks automatically, fallthrough keyword is used so the switch doesn't break automatically
+func TestFallthrough(t *testing.T) {
+	switch os := runtime.GOOS; os {
+	case "darwin":
+		fallthrough
+	case "linux":
+		fmt.Println("Good")
+	case "windows":
+		fmt.Println("Bad, very bad!")
 	}
 }
 

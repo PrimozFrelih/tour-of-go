@@ -31,7 +31,7 @@ func TestMap(t *testing.T) {
 	// even better
 	m2 := map[string]Vertex{
 		"Valentino": {46, 46},
-		"Rossi": {46, 46},		// 46 all the way
+		"Rossi": {46, 46},
 	}
 	fmt.Printf("46 all the way ==> %v\n\n", m2)
 }
@@ -56,6 +56,25 @@ func TestMutatingMaps(t *testing.T) {
 	delete(m, "k3")
 	val, present = m["k3"]
 	fmt.Printf("Present element at k3 = %v val = %v\n", present, val)
+}
+
+func TestSet(t *testing.T) {
+	set := NewIntSet()
+
+	// add two values to set
+	set.add(1)
+	set.add(2)
+	fmt.Printf("Set's content: %+v", set)
+
+	shoudlBePresent := set.contains(2)
+	shouldntBePresent := set.contains(3)
+
+	if !shoudlBePresent {
+		t.Error("Values 2 should be present")
+	}
+	if shouldntBePresent {
+		t.Error("Values 3 should't be present")
+	}
 }
 
 func TestExerciseMaps(t *testing.T) {

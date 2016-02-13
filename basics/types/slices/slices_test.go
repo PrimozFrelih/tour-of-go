@@ -18,6 +18,7 @@ func TestArrays(t *testing.T) {
 }
 
 func TestSlices(t *testing.T) {
+	// NOTE: slice doesn't have a size like an array
 	s := []int{1, 3, 5, 7, 9, 14}
 	fmt.Printf("%v\n", s)
 
@@ -67,9 +68,6 @@ func TestSlicesMaker(t *testing.T) {
 
 	d := b[2: 5]        // 3 elements
 	PrintSlice("d", d)
-
-	e := b[:3]                // pointer
-	PrintSlice("e", e)
 
 	// empty slice
 	var empty []int

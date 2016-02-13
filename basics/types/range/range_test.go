@@ -21,7 +21,7 @@ func TestRange(t *testing.T) {
 	}
 
 	// and print calculated pow array
-	for _, value := range pow {        // note: the index is ignored
+	for _, value := range pow {
 		fmt.Printf("%d\n", value)
 	}
 }

@@ -7,11 +7,15 @@ import (
 )
 
 func TestFunctions(t *testing.T) {
+	// create a function
 	hypot := func(x, y float64) float64 {
 		return math.Sqrt(x * x + y * y)
 	}
+
+	// invoke a function
 	fmt.Println(hypot(5, 12))
 
+	// pass a function as an argument
 	fmt.Println(compute(hypot))
 	fmt.Println(compute(math.Pow))
 }
@@ -28,6 +32,8 @@ func TestClosures(t *testing.T) {
 
 func TestFibonacci(t *testing.T) {
 	f := fibonacci()
+
+	// print first 10 fibonacci numbers
 	for i := 0; i < 10; i++ {
 		fmt.Println(f())
 	}
