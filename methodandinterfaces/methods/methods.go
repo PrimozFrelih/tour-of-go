@@ -14,15 +14,14 @@ func (v *Vertex) Abs() float64 {
 
 // v is a pointer so the value is read through a reference
 func (v *Vertex) Scale(f float64) {
-	v.X, v.Y = v.X * f, v.Y * f
+	v.X, v.Y = v.X*f, v.Y*f
 }
 
 // v is NOT a pointer so the copy gets mutated
 func (v Vertex) Scale1(f float64) {
-	v.X, v.Y = v.X * f, v.Y * f
+	v.X, v.Y = v.X*f, v.Y*f
 }
 
-// looks like v var of type float
 type MyFloat float64
 
 // function defined on MyFloat that is actually a float
@@ -33,5 +32,3 @@ func (f MyFloat) Abs() float64 {
 		return float64(f)
 	}
 }
-
-

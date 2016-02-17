@@ -1,8 +1,8 @@
 package methods
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestMethod(t *testing.T) {
@@ -24,13 +24,13 @@ func TestMethod3(t *testing.T) {
 	v := &Vertex{3, 4}
 	fmt.Printf("Before scaling: %+v, Abs: %v\n", v, v.Abs())
 	v.Scale(5)
-	fmt.Printf("After scaling: %+v, Abs: %v\n", v, v.Abs())
+	fmt.Printf("After scaling: %+v, Abs: %v\n\n", v, v.Abs())
 
-	// using a value type it works the same
+	// using a value type it works the same - go implicitly adds a reference
 	v1 := Vertex{3, 4}
 	fmt.Printf("Before scaling: %+v, Abs: %v\n", v1, v1.Abs())
 	v1.Scale(5)
-	fmt.Printf("After scaling: %+v, Abs: %v\n", v1, v1.Abs())
+	fmt.Printf("After scaling: %+v, Abs: %v\n\n", v1, v1.Abs())
 
 	// passing to a method that accepts the value type doesn't change the v2
 	v2 := Vertex{3, 4}
