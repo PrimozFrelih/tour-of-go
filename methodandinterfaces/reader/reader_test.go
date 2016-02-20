@@ -1,11 +1,12 @@
 package reader
+
 import (
-	"io"
 	"fmt"
+	"golang.org/x/tour/reader"
+	"io"
+	"os"
 	"strings"
 	"testing"
-	"golang.org/x/tour/reader"
-	"os"
 )
 
 func TestReader(t *testing.T) {
@@ -13,7 +14,7 @@ func TestReader(t *testing.T) {
 
 	b := make([]byte, 8)
 	for {
-		n, err := r.Read(b)
+		n, err := r.Read(b) // read data into slice b
 		fmt.Printf("n = %v err = %v b = %v\n", n, err, b)
 		fmt.Printf("b[:n] = %q\n", b[:n])
 		if err == io.EOF {
@@ -29,5 +30,7 @@ func TestReader2(t *testing.T) {
 func TestRot13Reader(t *testing.T) {
 	s := strings.NewReader("Lbh penpxrq gur pbqr!")
 	r := rot13Reader{s}
+
+	// copy from reader to std output
 	io.Copy(os.Stdout, &r)
 }

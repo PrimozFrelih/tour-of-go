@@ -1,4 +1,5 @@
 package reader
+
 import (
 	"io"
 	"unicode"
@@ -30,14 +31,13 @@ func (r rot13Reader) Read(b []byte) (int, error) {
 
 func rot13(b []byte) {
 	for i := 0; i < len(b); i++ {
-		c := rune(b[i])
+		c := rune(b[i]) // rune is used for unicode characters
 		if unicode.IsUpper(c) {
 			offset := rune(65)
 			b[i] = byte(((c - offset + 13) % 26) + offset)
-		}
-		if unicode.IsLower(c) {
+		} else if unicode.IsLower(c) {
 			offset := rune(97)
-			b[i] = byte(((c - 97 + 13) % 26) + offset)
+			b[i] = byte(((c - offset + 13) % 26) + offset)
 		}
 	}
 }

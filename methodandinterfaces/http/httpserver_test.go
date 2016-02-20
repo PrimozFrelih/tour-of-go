@@ -1,12 +1,13 @@
 package http
+
 import (
-	"testing"
-	"net/http"
 	"log"
+	"net/http"
+	"testing"
 )
 
-// disabled to tests aren't stuck in an infinite loop
-func testHTTPServer(t *testing.T) {
+// NOTE: tests get stuck in an infinite loop because they start a server
+func TestHTTPServer(t *testing.T) {
 	var h HelloServer
 
 	// start http server
@@ -16,11 +17,10 @@ func testHTTPServer(t *testing.T) {
 	}
 }
 
-// disabled to tests aren't stuck in an infinite loop
-func testHTTPServerExercise(t *testing.T) {
+func TestHTTPServerExercise(t *testing.T) {
 	http.Handle("/string", String("I'm a frayed knot."))
-	http.Handle("/struct", &Struct{"Hello", ":", "Gophers!"})
+	http.Handle("/struct", &HTTPStruct{"Hello", ":", "Gophers!"})
 
-
+	// run a server (with two handlers) that listens on 2 urls
 	log.Fatal(http.ListenAndServe("localhost:4000", nil))
 }

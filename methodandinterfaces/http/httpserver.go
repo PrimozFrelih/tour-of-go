@@ -1,7 +1,8 @@
 package http
 
-import ("net/http"
+import (
 	"fmt"
+	"net/http"
 )
 
 // http server implements this interface
@@ -10,7 +11,7 @@ type Handler interface {
 }
 
 // server struct
-type HelloServer struct {}
+type HelloServer struct{}
 
 // implementing ServerHTTP interface that create content for the server
 func (h HelloServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
@@ -20,16 +21,18 @@ func (h HelloServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 // exercise
 type String string
 
-type Struct struct {
+type HTTPStruct struct {
 	Greeting string
 	Punct    string
 	Who      string
 }
 
+// implement handler (http server) interface on type String
 func (s String) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, s)
 }
 
-func (s *Struct) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+// implement handler interface on HTTPStruct
+func (s *HTTPStruct) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, s.Greeting, s.Punct, s.Who)
 }

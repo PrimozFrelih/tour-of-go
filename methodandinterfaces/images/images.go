@@ -1,7 +1,8 @@
 package images
+
 import (
-	"image/color"
 	"image"
+	"image/color"
 )
 
 // image interface from the package image
@@ -11,13 +12,13 @@ import (
 	At(x, y int) color.Color
 }*/
 
-
 // exercise
-type Image struct{
+type Image struct {
 	w int
 	h int
 }
 
+// implement Image interface
 func (i Image) ColorModel() color.Model {
 	return color.RGBAModel
 }
