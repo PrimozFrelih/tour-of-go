@@ -1,7 +1,8 @@
 package select1
+
 import (
-	"testing"
 	"fmt"
+	"testing"
 	"time"
 )
 
@@ -27,11 +28,13 @@ func TestSelectDefault(t *testing.T) {
 	tick := time.Tick(1 * time.Second)
 	boom := time.After(10 * time.Second)
 
-	for  {
+	for {
+		// non deterministically select one case that can execute, if none of the cases can execute it infinitely
+		// loop through the cases until une executes if there is not default case
 		select {
-		case <- tick:
+		case <-tick:
 			fmt.Println("tick.")
-		case <- boom:
+		case <-boom:
 			fmt.Println("boom!")
 			return
 		default:

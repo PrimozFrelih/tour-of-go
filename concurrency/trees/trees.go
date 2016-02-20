@@ -1,12 +1,12 @@
 package trees
+
 import (
 	"golang.org/x/tour/tree"
-	"time"
 )
 
 // tree structure from tour
 type Tree struct {
-	Left *Tree
+	Left  *Tree
 	Value int
 	Right *Tree
 }
@@ -23,37 +23,34 @@ func Walk(t *tree.Tree, ch chan int) {
 	}
 }
 
+func WalkWrapper(t *tree.Tree, ch chan int) {
+	Walk(t, ch)
+	close(ch)
+}
+
 // Same determines whether the trees
 // t1 and t2 contain the same values.
 func Same(t1, t2 *tree.Tree) bool {
-	ch1 := make(chan int, 1000)
-	ch2 := make(chan int, 1000)
+	ch1 := make(chan int)
+	ch2 := make(chan int)
 
 	// walk through both trees
-	Walk(t1, ch1)
-	Walk(t2, ch2)
+	go WalkWrapper(t1, ch1)
+	go WalkWrapper(t2, ch2)
 
 	// compare channels
-	counter := 10
-	for ; counter > 0;  {
-		var v1, v2 int
-
-		select {
-		case v1 = <-ch1:
-			v2 = <-ch2
-		case v2 = <-ch2:
-			v1 = <-ch1
-		default:
-			time.Sleep(10 * time.Millisecond)
-			counter--
-			continue
-		}
+	for {
+		v1, open1 := <-ch1
+		v2, open2 := <-ch2
 
 		// check value
-		if v1 != v2 {
+		if v1 != v2 || open1 != open2 {
 			return false
 		}
-		counter = 10
+
+		if !open1 && !open2 {
+			break
+		}
 	}
 	return true
 }
